@@ -53,10 +53,14 @@ for subi=1:numel(subject_folders)
 %         hold on
 %         plot(150*trig_ch)
         
-        y_out = zeros(n_ch+1, num_t_samples);
+        y_out = zeros(n_ch+3, num_t_samples);
         y_out(1:n_ch, :) = y(:, :);
+        % record the trigger channel to y_out(34:36,:), because typical
+        % signal in other experiments also contains channels 34:36 
         y_out(n_ch+1, :) = trig_ch';
-        
+        y_out(n_ch+2, :) = trig_ch';
+        y_out(n_ch+3, :) = trig_ch';
+
         y = y_out; 
         
         % build the filename appropriate for the further pipeline
