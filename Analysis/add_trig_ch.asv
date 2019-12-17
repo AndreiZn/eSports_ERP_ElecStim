@@ -57,6 +57,8 @@ for subi=1:numel(subject_folders)
         y_out(1:n_ch, :) = y(:, :);
         y_out(n_ch+1, :) = trig_ch';
         
+        keyboard
+        
         y = y_out; 
         
         % build the filename appropriate for the further pipeline
@@ -73,7 +75,7 @@ for subi=1:numel(subject_folders)
         used_freq = str2double(file_struct.name(end-8));
         if used_freq == 5
             filename = [filename, '5'];
-        elseif used_freq == 1
+        elseif num_recorded_ch == 1
             filename = [filename, '1'];
         else
             errordlg('cannot parse ES frequency from the filename')
@@ -92,6 +94,6 @@ for subi=1:numel(subject_folders)
         if ~exist(output_folder_cur, 'dir')
             mkdir(output_folder_cur)
         end
-        save([output_folder_cur, '\', filename], 'y')
+        save([output_folder_cur, '\', file_struct.name], 'y')
     end
 end
