@@ -1,4 +1,4 @@
-root_folder = 'E:\Electrical_stimulation_exp\Electrical_stimulation_exp_data';
+root_folder = 'E:\eSports_project\2_eSports_ERP_ElecStim\archive\1st_attempt_(fixed_frequency)_07112019';
 
 files = dir(root_folder);
 files_flag = ~[files.isdir] & ~strcmp({files.name},'..') & ~strcmp({files.name},'.');
@@ -16,7 +16,7 @@ for filei=1:numel(files)
     EEG = pop_select( EEG,'channel',[2:9]);
     EEG = eeg_checkset( EEG );
     
-    EEG = pop_editset(EEG, 'chanlocs', 'E:\\EEG_caps_comparison_main\\EEG_caps_comparison_code\\eeglab14_1_2b\\sample_locs\\gGAMMAcap8ch_10-20.locs');
+    EEG = pop_editset(EEG, 'chanlocs', 'E:\02_old_projects\EEG_caps_comparison_main\EEG_caps_comparison_code\eeglab14_1_2b\sample_locs\gGAMMAcap8ch_10-20.locs');
     EEG = eeg_checkset( EEG );
         
     EEG = eeg_eegrej( EEG, [0 7000]);
