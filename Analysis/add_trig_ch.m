@@ -76,9 +76,9 @@ for subi=1:numel(subject_folders)
         
         used_freq = str2double(file_struct.name(end-8));
         if used_freq == 5
-            filename = [filename, '5'];
+            filename = [filename, '_5'];
         elseif used_freq == 1
-            filename = [filename, '1'];
+            filename = [filename, '_1'];
         else
             errordlg('cannot parse ES frequency from the filename')
         end
